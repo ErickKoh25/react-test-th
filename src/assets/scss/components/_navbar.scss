@@ -1,0 +1,64 @@
+@mixin hover-menu($theme:$secondary){
+    color: $theme;
+    cursor: pointer;
+    transition: .5s ease-out;
+    line-height: 25px;
+    &:hover {
+        color: darken($color: $theme, $amount: 10);
+        transition: .5s ease-in;
+    }
+}
+
+nav {
+    background-color: lighten($color:$primary, $amount: 3);
+    width: 100%;
+    display: inline-flex;
+    height: 11vh;
+    box-shadow: 0px 7px 4px -8px $boxes;
+    .navbar-brand {
+        width: 40%;
+        margin-left: 8vw;
+        align-items: center;
+        height: 100%;
+        display: inline-flex;
+        img {
+            height: 70%;
+        }
+        h2 {
+            @include hover-menu($theme:$secondary);
+            .fa-plane {
+                margin-left: 10px;
+                transform: rotate(-45deg)
+            }
+        }
+    }
+    .menu {
+        width: 60%;
+        text-align: right;
+        padding-right: 8vw;
+        ul {
+            padding-left: 0;
+            height: 100%;
+            li{
+                display: inline-flex;
+                align-items: center;
+                text-decoration: none;
+                margin-left: 10px;
+                margin-right: 10px;
+                height: 100%;
+                font-weight: bold;
+                a {
+                    border-bottom: 4px transparent solid;
+                    @include hover-menu($theme:$secondary);
+                    &:hover {
+                        border-bottom: 4px $secondary solid;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (min-width: $xs) and (max-width:$sm) {
+
+}

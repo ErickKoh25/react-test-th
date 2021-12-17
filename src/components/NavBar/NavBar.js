@@ -1,13 +1,26 @@
 import React from 'react'
-
+import { NavBrand } from './NavBrand';
+import logo from '../../assets/img/hawai-airlanes.png'
 export const NavBar = () => {
+    const links = [
+        {
+            title:'Mis Reservas',
+            path:'/reservas'
+        },
+        {
+            title:'Registrate',
+            path:'/registro'
+        },
+        {
+            title:'Iniciar Sesión',
+            path:'/login'
+        },
+    ]
     return (
         <nav className='navbar'>
-            <div className='navbar-brand'>
-                {/* <img/> */}
-                <h2>Mi Aerolinea</h2>
-            </div>
-            <div class='menu'>
+            <NavBrand img={''}/>
+            {/* <NavMenu links={links} /> */}
+            <div className='menu'>
                 <ul>
                     <li>
                         <a>
