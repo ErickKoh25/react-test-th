@@ -1,6 +1,9 @@
 import React from 'react'
-import { NavBrand } from './NavBrand';
+import { NavBrand } from './NavBrand/NavBrand';
 import logo from '../../assets/img/hawai-airlanes.png'
+import { NavMenu } from './NavMenu/NavMenu';
+import { Navigate, Route } from 'react-router-dom';
+import { Home } from '../Home/Home';
 export const NavBar = () => {
     const links = [
         {
@@ -18,27 +21,8 @@ export const NavBar = () => {
     ]
     return (
         <nav className='navbar'>
-            <NavBrand img={''}/>
-            {/* <NavMenu links={links} /> */}
-            <div className='menu'>
-                <ul>
-                    <li>
-                        <a>
-                            Mis Reservaciones
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            Registrate
-                        </a>
-                    </li>
-                    <li>
-                        <a>
-                            Iniciar Sesión
-                        </a>
-                    </li>                        
-                </ul>
-            </div>
+            <NavBrand/>
+            <NavMenu />
         </nav>
     )
 }

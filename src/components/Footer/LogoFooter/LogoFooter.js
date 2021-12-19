@@ -1,19 +1,17 @@
 import React from 'react'
 
-export const NavBrand = ({img}) => {
+export const LogoFooter = ({img}) => {
     return (
-        <div className='navbar-brand'>
+        <div className='logo-footer'>
             
             {
                 img ? 
                     <img src={img} alt='logo-aerolinea'/>
                 :   <h2>
                         Mi Aerolinea
-                        <i class="fas fa-plane"></i>
+                        <i className="fas fa-plane"></i>
                     </h2>
-            }
-
-            
+            }  
         </div>
     )
 }

@@ -1,0 +1,65 @@
+.footer {
+    width: 100%;
+    height: 200px;
+    background-color: $primary;
+    @include inline-flex;
+    div {
+        width: 33.3%;
+        color: $white;
+    }
+    .contact {
+        h2{
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        span {
+            cursor: pointer;
+            display: block;
+            margin-left: 15%;
+            i{
+                margin-right: 10px;
+            }
+            a {
+                color:$white
+            }
+            &:hover {
+                color:$secondary;
+                transition: .3s ease-out;
+                a,i{
+                    color:$secondary;
+                    transition: .3s ease-in;
+                }
+            }
+        }
+    }
+    .logo-footer {
+        text-align: center;
+        .fa-plane {
+            margin-left: 10px;
+            transform: rotate(-45deg)
+        }
+    }
+    .social-media {
+        h2{
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        div {
+            @include inline-flex;
+            span {
+                width: 40px!important;
+                height: 40px;
+                border-radius: 25px;
+                border: 1px $white solid;
+                cursor: pointer;
+                transition: .3s ease-out;
+                @include inline-flex;
+                &:hover {
+                    color: $secondary;
+                    border: 1px $secondary solid;
+                    transition: .3s ease-in;
+                }
+            }
+        }
+    }
+}

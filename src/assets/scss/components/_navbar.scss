@@ -1,20 +1,9 @@
-@mixin hover-menu($theme:$secondary){
-    color: $theme;
-    cursor: pointer;
-    transition: .5s ease-out;
-    line-height: 25px;
-    &:hover {
-        color: darken($color: $theme, $amount: 10);
-        transition: .5s ease-in;
-    }
-}
-
 nav {
+    position: fixed;
+    top: 0;
+    z-index: 1;
     background-color: lighten($color:$primary, $amount: 3);
-    width: 100%;
-    display: inline-flex;
-    height: 11vh;
-    box-shadow: 0px 7px 4px -8px $boxes;
+    @include boxes-container($height:11vh);
     .navbar-brand {
         width: 40%;
         margin-left: 8vw;
@@ -48,10 +37,10 @@ nav {
                 height: 100%;
                 font-weight: bold;
                 a {
-                    border-bottom: 4px transparent solid;
+                    border-bottom: 3px transparent solid;
                     @include hover-menu($theme:$secondary);
                     &:hover {
-                        border-bottom: 4px $secondary solid;
+                        border-bottom: 3px darken($color:$secondary,$amount:10) solid;
                     }
                 }
             }

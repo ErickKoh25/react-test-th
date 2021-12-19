@@ -1,8 +1,11 @@
 @import './base/settings';
 @import './base/base';
-
+@import './base/general';
+@import './base/mixins';
 // Components
 @import './components/auth';
 @import './components/navbar';
 @import './components/buttons';
 @import './components/links';
+@import './components/home';
+@import './components/footer';
