@@ -1,30 +1,54 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, memo } from 'react'
 import { useSelector } from 'react-redux'
 import { DataSearch } from './DataSearch/DataSearch'
 import { EmptySearch } from './Empty/EmptySearch'
+import { Loader } from '../General/Loader/Loader';
 
-export const ResultSearch = ({func}) => {
-    const {data_selected_flight:{id_departure, id_arrival,round_flight},flights_from_departure, flights_from_arrival} = useSelector(state => state.flight)
-    const citys = useSelector(state => state.city.citys)
-    const {name:name_departure} = (id_departure!=null) ? citys.find(c=>c.id==id_departure) : ''
-    const {name:name_arrival} = (id_arrival!=null) ? citys.find(c=>c.id==id_arrival) : ''
-    const route1 = `${name_departure} - ${name_arrival}`
-    const route2 = `${name_arrival} - ${name_departure}`
-    const results = []
-    const results2 = []
+export const ResultSearch = memo(({className,func}) => {
+
+    const {flights_from_origin, flights_from_destination, searching_flight} = useSelector(state => state.flight)
+
+    const [showLoader, setShowLoader] = useState(false)
+    const [openDataSearch, setOpenDataSearch] = useState('')
+    const [isEmpty,setIsEmpty] = useState('')
+
+    useEffect(() => {
+        
+        if(flights_from_origin.length > 0) {
+            setIsEmpty('')
+            setOpenDataSearch('open')
+         } else if(searching_flight) {
+            setIsEmpty('open')
+            setOpenDataSearch('')
+        }
+        
+        if(searching_flight) {
+            setShowLoader(true)
+        } else {
+            setShowLoader(false)
+        }
+
+    }, [flights_from_origin,searching_flight])
+
+    const handleOnClick = (click) => {
+        setIsEmpty('')
+        setOpenDataSearch('')
+        func(click)
+    }
+    
     return (
-        <div className='result-search'>
-            {
-                results 
-                    ?   <>
-                            <DataSearch items={results} route1={route1} date={''} func={func}/>
-                            <DataSearch items={results2} route1={route2} date={''}/>
-                        </>
-                    :   <EmptySearch />
-                
+        <div className={`${className} result-search`}>
+            {   
+                showLoader && <Loader />
             }
-            
+            {
+                !showLoader && 
+                    <>
+                        <DataSearch className={openDataSearch} items1={flights_from_origin} items2={flights_from_destination} func={handleOnClick}/>        
+                        <EmptySearch className={isEmpty} func={handleOnClick} />
+                    </>
+            }
             
         </div>
     )
-}
+})

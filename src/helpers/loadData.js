@@ -1,6 +1,6 @@
 import { db } from "../config/firebase-config";
 import { collection, orderBy, query, where, getDocs } from "firebase/firestore";
-import { searchingFlights, setFlightsFromArrival, setFlightsFromDeparture } from "../redux/actions/flight";
+import { SEARCHING_FLIGHTS, SET_FLIGHTS_FROM_DESTINATION, SET_FLIGHTS_FROM_ORIGIN } from "../redux/actions/flight";
 
 export const loadCitys = async () => {
     const citysSnap = await db.collection('Ciudades').get()
@@ -20,8 +20,8 @@ export const SortArray = (x,y) => {
 
 export const searchFlights = async (dispatch, getState) => {
     const {citys} = getState().city
-    const {id_departure, id_arrival, round_flight, dates} = getState().flight.data_selected_flight
-    let flights_from_departure = []
+    const {id_departure, id_arrival, round_flight, dates} = getState().flight.data_searchbox_flight
+    let flights_from_origin = []
     let flights_from_return = []
 
     const date1 = (round_flight) ? dates[0] : dates
@@ -38,7 +38,7 @@ export const searchFlights = async (dispatch, getState) => {
 
     const querySnapshot = await getDocs(q)
     querySnapshot.forEach((d) =>{
-        flights_from_departure.push({
+        flights_from_origin.push({
             id:d.id,
             ...d.data()
         })
@@ -46,7 +46,7 @@ export const searchFlights = async (dispatch, getState) => {
 
     // 2do Vuelo
     if(date2!=null) {
-        console.log(date2)
+        // console.log(date2)
         const q2 = query(
             collection(db,'Horarios'), 
             where("origen", "==",id_arrival),
@@ -63,7 +63,7 @@ export const searchFlights = async (dispatch, getState) => {
         })
     }
 
-    flights_from_departure = flights_from_departure.map(fd => {
+    flights_from_origin = flights_from_origin.map(fd => {
         let city_dp = citys.find(c=> c.id == fd.origen)
         let city_arr = citys.find(c=> c.id == fd.destino)
         fd.city_dp = city_dp
@@ -78,9 +78,13 @@ export const searchFlights = async (dispatch, getState) => {
         fd.city_arr = city_arr
         return fd
     })
-    console.log(flights_from_departure.length)
-    console.log(flights_from_return.length)
-    dispatch(searchingFlights(false))
-    dispatch(setFlightsFromDeparture(flights_from_departure))
-    dispatch(setFlightsFromArrival(flights_from_return))
+    console.log(flights_from_origin)
+    console.log(flights_from_return)
+    setTimeout(() => {
+        dispatch(SEARCHING_FLIGHTS(false))
+    }, 2500)
+    setTimeout(() => {
+        dispatch(SET_FLIGHTS_FROM_ORIGIN(flights_from_origin))
+        dispatch(SET_FLIGHTS_FROM_DESTINATION(flights_from_return))
+    }, 400)
 }

@@ -1,17 +1,18 @@
 export const types = {
-    login:'[Auth] Login',
-    logout:'[Auth] Logout',
 
-    uiSetError: '[UI] Set Error',
-    uiRemoveError: '[UI] Remove Error',
+    LOGIN:'[AUTH] Login',
+    LOGOUT:'[AUTH] Logout',
 
-    uiStartLoading: '[UI] Start Loading',
-    uiFinishLoading: '[UI] Finish Loading',
+    LOADED_CITYS: '[CITY] Loaded Citys',
 
-    citysLoaded: '[City] Loaded Citys',
+    SET_DATA_SEARCHBOX_FLIGHT: '[FLIGHT] Set Data Searchbox Flight',
+    SEARCHING_FLIGHTS: '[FLIGHT] Searching Flights',
+    LOADED_FLIGHTS_FROM_ORIGIN: '[FligFLIGHTht] Flights Loaded From Origin',
+    LOADED_FLIGHTS_FROM_DESTINATION: '[FLIGHT] Flights Loaded From Destination',
+    SELECT_ORIGIN_FLIGHT: '[FLIGHT] Flight Origin Selected',
+    SELECT_DESTINATION_FLIGHT: '[FLIGHT] Flight Destination Selected',
 
-    dataSelectedFlight: '[Flight] Data Search Flight',
-    searchingFlights: '[Flight] Searching Flights',
-    flightsLoadedFromDeparture: '[Flight] Flights Loaded From Departure',
-    flightsLoadedFromArrival: '[Flight] Flights Loaded From Arrival',
+    ADD_NEW_FLIGHTS: '[CART] Set New Flight in Cart',
+    DELETE_FLIGHT: '[CART] Delete Flight from Cart',
+    REMOVE_LAST_FLIGHT: '[CART] Remove Last Flight from Cart'
 }

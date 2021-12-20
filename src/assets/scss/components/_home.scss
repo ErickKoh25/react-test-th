@@ -150,16 +150,24 @@ section {
         }
     }
     .result-search { 
+        display: none;
         background-color: rgba(0,0,0,.5);
+        transition: .3s ease-out;
         @include div-absolute-center($position:fixed);
         .empty-search, .data-search{
+            display: none;
             background-color: $tertiary;
             border-radius: 10px;
+            transition: .3s ease-out;
             @include text-style($size:16px, $weight:600, $color:$dark-grey);
             @include div-absolute-center($position:fixed);
         }
+        .empty-search.open, .data-search.open {
+            display: block;
+            transition: .3s ease-out;
+        }
         .empty-search{
-            @include boxes-container($width:50%,$height:40%, $display:block, $hsl: 0px, $vsl: 0px, $blur: 13px, $spr: -5px);
+            @include boxes-container($width:50%,$height:40%, $display:none, $hsl: 0px, $vsl: 0px, $blur: 13px, $spr: -5px);
             .text-info{
                 width: 80%;
                 height: 60%;
@@ -176,18 +184,35 @@ section {
         .data-search {
             background-color: $tertiary;
             border-radius: 10px;
-            @include boxes-container($width:60%,$height:70%, $display:block, $hsl: 0px, $vsl: 0px, $blur: 13px, $spr: -5px);
+            @include boxes-container($width:60%,$height:70%, $display:none, $hsl: 0px, $vsl: 0px, $blur: 13px, $spr: -5px);
+            .closeModal, .return{
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                min-width: 20px;
+                border-radius: 30px;
+                font-size: 14px;
+                text-align: center;
+                top: 5%;
+            }
+            .return{
+                left: 5%;
+            }
+            .closeModal{
+                right: 5%;
+            }
             .info-flight {
                 border-bottom: 4px $secondary solid;
+                text-align: center;
             }
             .exit-search {
                 height: 80%;
                 h4{
-                    height: 5%;
+                    height: 7%;
                 }
                 .container-cards {
                     overflow-y: auto;
-                    height: 95%;
+                    height: 92%;
                     .card {
                         position: relative;
                         @include card-styles();
@@ -248,5 +273,9 @@ section {
             }
         }
         
+    }
+    .result-search.open {
+        display: block;
+        transition: .3s ease-in;
     }
 }

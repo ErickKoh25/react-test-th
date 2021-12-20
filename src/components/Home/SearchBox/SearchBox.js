@@ -10,7 +10,7 @@ import { loadCitys, searchFlights } from '../../../helpers/loadData';
 import { setCitys } from '../../../redux/actions/citys';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from '../../../hooks/useForm';
-import { setDataSelectedFlight, searchingFlights } from '../../../redux/actions/flight';
+import { SET_DATA_SEARCHBOX_FLIGHT, SEARCHING_FLIGHTS } from '../../../redux/actions/flight';
 export const SearchBox = () => {
 
     const dispatch = useDispatch()
@@ -55,10 +55,13 @@ export const SearchBox = () => {
     }
 
     const handleSearchFlight = () => {
-        dispatch(setDataSelectedFlight(formValues))
-        dispatch(searchingFlights(true))
+
+        dispatch(SET_DATA_SEARCHBOX_FLIGHT(formValues))
+        dispatch(SEARCHING_FLIGHTS(true))
+
         dispatch(searchFlights)
         setOpenModal(true)
+        
     }
     return (
         <>
@@ -106,11 +109,8 @@ export const SearchBox = () => {
                 </div>
             </div>
             {
-                openModal ?
-                    <ResultSearch func={setOpenModal} />
-                    : ''
+                <ResultSearch className={openModal ? 'open' : ''} func={setOpenModal} />   
             }
-            
         </>
     )
 }

@@ -8,7 +8,6 @@ import { SearchBox } from './SearchBox/SearchBox'
 export const Home = () => {
     return (
         <>
-            <NavBar />
             <section>
                 <BackgroundImage />
                 <SearchBox />
