@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { memo, useEffect } from 'react'
 import { useCounter } from '../../../hooks/useCounter';
 
-export const SelectPassengers = ({text=''}) => {
+export const SelectPassengers = memo(({text='',func}) => {
+
     const {counter, increment, decrement, reset} = useCounter(1);
-    console.log(counter)
+    
+    useEffect(() => {
+        func(counter)
+    }, [counter])
+   
     return (
         <div className='number-passengers'>
             <button onClick={ () => decrement() }>
@@ -15,4 +20,4 @@ export const SelectPassengers = ({text=''}) => {
             </button>
         </div>
     )
-}
+})

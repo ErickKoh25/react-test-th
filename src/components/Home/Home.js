@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Footer } from '../Footer/Footer'
 import { NavBar } from '../NavBar/NavBar'
 import { BackgroundImage } from './BackgroundImage/BackgroundImage'

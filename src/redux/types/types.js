@@ -8,11 +8,10 @@ export const types = {
     uiStartLoading: '[UI] Start Loading',
     uiFinishLoading: '[UI] Finish Loading',
 
-    notesAddNew: '[Notes] New note',
-    notesActive: '[Notes] Set Active note',
-    notesLoad: '[Notes] Load notes',
-    notesUpdated: '[Notes] Updated note',
-    notesFileUrl: '[Notes] Updated image url',
-    notesDelete: '[Notes] Delete note',
-    notesLogoutCleaning: '[Notes] Logout Cleaning',
+    citysLoaded: '[City] Loaded Citys',
+
+    dataSelectedFlight: '[Flight] Data Search Flight',
+    searchingFlights: '[Flight] Searching Flights',
+    flightsLoadedFromDeparture: '[Flight] Flights Loaded From Departure',
+    flightsLoadedFromArrival: '[Flight] Flights Loaded From Arrival',
 }

@@ -8,9 +8,10 @@ export const useForm = (initialState = {}) => {
     }
 
     const handleInputChange = ({target}) => {
+        let value = (target.checked!=undefined) ? target.checked : target.value
         setValues({
             ...values,
-            [target.name]:target.value
+            [target.name]: value
         }, [])
     }
 

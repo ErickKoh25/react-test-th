@@ -5,7 +5,7 @@
     @include inline-flex;
     div {
         width: 33.3%;
-        color: $white;
+        color: $secondary;
     }
     .contact {
         h2{
@@ -20,7 +20,7 @@
                 margin-right: 10px;
             }
             a {
-                color:$white
+                color:$secondary
             }
             &:hover {
                 color:$secondary;

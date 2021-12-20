@@ -1,26 +1,15 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import { ListUl } from '../../../General/List/ListUl'
 
-export const ListOptions = ({search='', icon=''}) => {
-    console.log(search)
-    const options = [
-        {
-            id:1,
-            name: 'Mérida',
-        },
-        {
-            id:2,
-            name: 'Cd. México',
-        },
-        {
-            id:3,
-            name: 'Monterrey',
-        }
-    ]
-    const items = (search!='') ? options.filter(l => l.name.toLowerCase().includes(search.toLowerCase())) : options
+export const ListOptions = ({search='', icon='', type='', func=''}) => {
+    
+    const {citys} = useSelector(state => state.city)
+    const items = (search!='') ? citys.filter(l => l.name.toLowerCase().includes(search.toLowerCase())) : citys
+
     return (
         <div className='list-options'>
-            <ListUl list={items} icon={icon}/>
+            <ListUl list={items} icon={icon} type={type} func={func}/>
         </div>
     )
 }

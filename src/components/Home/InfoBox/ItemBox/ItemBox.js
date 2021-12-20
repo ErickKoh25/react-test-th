@@ -1,7 +1,6 @@
 import React from 'react'
 
 export const ItemBox = ({it,i}) => {
-    console.log(it.impar)
     return (
         <div className='item-box'>
             <div className={`background ${it.impar}`} style={{backgroundImage:`url(${require(`../../../../assets/img/home/${it.img}`)})`}}>

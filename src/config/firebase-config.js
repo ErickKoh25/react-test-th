@@ -4,13 +4,12 @@ import 'firebase/compat/firestore';
 import 'firebase/compat/auth';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyCFhvUYH-fPglHDaiGW9iIDJqy9aK3tn0E",
-    authDomain: "react-apps-course-f4ffc.firebaseapp.com",
-    projectId: "react-apps-course-f4ffc",
-    storageBucket: "react-apps-course-f4ffc.appspot.com",
-    messagingSenderId: "718429949062",
-    appId: "1:718429949062:web:5145a1002892b100091507",
-    measurementId: "G-6Y1YT2YLWJ"
+    apiKey: "AIzaSyDiKKbweLcKvwyaUgKjzfsLsSOA0puuY5U",
+    authDomain: "mi-aerolinea.firebaseapp.com",
+    projectId: "mi-aerolinea",
+    storageBucket: "mi-aerolinea.appspot.com",
+    messagingSenderId: "513170921958",
+    appId: "1:513170921958:web:05d16bf40af6bb97715e27"
 };
 
 firebase.initializeApp(firebaseConfig);
