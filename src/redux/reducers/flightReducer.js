@@ -14,6 +14,11 @@ export const flightReducer = (state=initialState, action) => {
                 ...state,
                 data_searchbox_flight: action.payload
             }
+        case types.CLEAR_DATA_SEARCHBOX_FLIGHT: 
+            return {
+                ...state,
+                data_searchbox_flight: action.payload
+            }
         case types.SEARCHING_FLIGHTS: 
             return {
                 ...state,
@@ -38,6 +43,12 @@ export const flightReducer = (state=initialState, action) => {
             return {
                 ...state,
                 selected_destination_flight: action.payload
+            }
+        case types.CLEAR_LOADED_FLIGHTS: 
+            return {
+                ...state,
+                flights_from_origin: [],
+                flights_from_destination: []
             }
         
         default:

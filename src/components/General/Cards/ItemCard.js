@@ -1,8 +1,8 @@
 import React from 'react'
+import { ActionButton } from '../Button/ActionButton'
 
 export const ItemCard = (props) => {
-    const {id,type,departureCode,arrivalCode,takeoff,landing,ammount,func} = props
-    console.log(landing)
+    const {id,type,action,passengers,departureCode,arrivalCode,takeoff,landing,ammount,func} = props
     return (
         <div className='card pointer mt-3'>
             <div className='departure'>
@@ -24,11 +24,9 @@ export const ItemCard = (props) => {
                     <i className="fas fa-plane-arrival mr-1 ml-1"></i>
                 </div>
             </div>
-            <div className='ammount'>$ {ammount} MXN</div>
+            <div className='ammount'> {passengers} x $ {ammount} MXN</div>
             <div className='actions'>
-                <button className='btn btn-primary' onClick={() => {func(id,type)}}>
-                    <i className="fas fa-shopping-cart"></i>
-                </button>
+                <ActionButton claassName={''} id={id} type={type} action={action} func={func} />
             </div>
         </div>
     )

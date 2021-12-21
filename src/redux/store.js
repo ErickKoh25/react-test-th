@@ -11,7 +11,7 @@ const reducers = combineReducers({
     auth: authReducer,
     city: cityReducer,
     flight: flightReducer,
-    car: cartReducer
+    cart: cartReducer
 })
 
 export const store = createStore(

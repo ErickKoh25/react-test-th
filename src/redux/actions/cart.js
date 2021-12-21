@@ -14,3 +14,8 @@ export const REMOVE_LAST_FLIGHT = () => ({
     type: types.REMOVE_LAST_FLIGHT,
     payload: true
 })
+
+export const DELETE_ALL_FLIGHTS = () => ({
+    type: types.DELETE_ALL_FLIGHTS,
+    payload: true
+})

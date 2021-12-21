@@ -1,24 +1,30 @@
-import React from 'react'
+import React, { memo } from 'react'
 import { InfoFlight } from './InfoFlight';
 import { ItemCard } from '../../General/Cards/ItemCard';
 import { useDispatch, useSelector } from 'react-redux';
 import { SELECT_ORIGIN_FLIGHT, SELECT_DESTINATION_FLIGHT } from '../../../redux/actions/flight';
 import { ADD_NEW_FLIGHTS } from '../../../redux/actions/cart';
 
-export const ContainerData = (props) => {
-
+export const ContainerData = memo((props) => {
     const dispatch = useDispatch()
     const {flights_from_origin, flights_from_destination} = useSelector(state => state.flight)
 
-    const {date,items,route,type} = props
-
+    const {date,items,passengers,route,type} = props
+    console.log(type)
+    const action = { 
+        text: '',
+        icon: 'fas fa-shopping-cart'
+    }
     const handleClickAction = (id, type) => {
+        console.log(id,type)
         let flight = null
         if(type=='route1') {
             flight = flights_from_origin.find(f => f.id == id)
+            flight.passengers = passengers
             dispatch(SELECT_ORIGIN_FLIGHT(true))
         } else {
             flight = flights_from_destination.find(f => f.id == id)
+            flight.passengers = passengers
             dispatch(SELECT_DESTINATION_FLIGHT(true))
         }
         dispatch(ADD_NEW_FLIGHTS(flight))
@@ -36,11 +42,13 @@ export const ContainerData = (props) => {
                                 <ItemCard key={i} 
                                     id = {it.id}
                                     type = {type}
+                                    action = {action}
                                     departureCode = {it.city_dp.code} 
                                     arrivalCode = {it.city_arr.code} 
                                     takeoff = {it.takeoff} 
                                     landing = {it.landing} 
                                     ammount = {it.ammount}
+                                    passengers = {passengers}
                                     func = {handleClickAction}
                                 />
                             )
@@ -50,4 +58,4 @@ export const ContainerData = (props) => {
             </div>
         </>
     )
-}
+})

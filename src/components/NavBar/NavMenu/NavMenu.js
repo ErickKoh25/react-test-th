@@ -6,7 +6,7 @@ export const NavMenu = () => {
         {
             name:'Mis Reservaciones',
             type:'link',
-            path:'/my-reservation'
+            path:'/my-reservations'
         },
         {
             name:'Login',

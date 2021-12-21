@@ -6,19 +6,19 @@ export const InfoBox = () => {
             {
                title:'Title 1',
                p:'Reprehenderit tempor anim proident nulla duis quis id in. Nostrud adipisicing consectetur incididunt nisi velit magna pariatur tempor consectetur. Aliqua ad aliqua anim ullamco labore pariatur eiusmod sit quis do officia consectetur eiusmod et. Laborum anim velit cupidatat excepteur id eu esse magna amet. In nostrud id et ut culpa adipisicing id exercitation nisi voluptate ad. Elit elit excepteur aute voluptate eu anim occaecat nisi laborum aliqua sint quis enim ullamco.',
-               img:'fondo.jpg',
+               img:'block1.jpg',
                impar:''
             },
             {
                 title:'Title 2',
                 p:'Reprehenderit tempor anim proident nulla duis quis id in. Nostrud adipisicing consectetur incididunt nisi velit magna pariatur tempor consectetur. Aliqua ad aliqua anim ullamco labore pariatur eiusmod sit quis do officia consectetur eiusmod et. Laborum anim velit cupidatat excepteur id eu esse magna amet. In nostrud id et ut culpa adipisicing id exercitation nisi voluptate ad. Elit elit excepteur aute voluptate eu anim occaecat nisi laborum aliqua sint quis enim ullamco.',
-                img:'fondo.jpg',
+                img:'block2.jpg',
                 impar: 'impar'
             },
             {
                 title:'Title 3',
                 p:'Reprehenderit tempor anim proident nulla duis quis id in. Nostrud adipisicing consectetur incididunt nisi velit magna pariatur tempor consectetur. Aliqua ad aliqua anim ullamco labore pariatur eiusmod sit quis do officia consectetur eiusmod et. Laborum anim velit cupidatat excepteur id eu esse magna amet. In nostrud id et ut culpa adipisicing id exercitation nisi voluptate ad. Elit elit excepteur aute voluptate eu anim occaecat nisi laborum aliqua sint quis enim ullamco.',
-                img:'fondo.jpg',
+                img:'block3.jpg',
                 impar: ''
             }
         ]

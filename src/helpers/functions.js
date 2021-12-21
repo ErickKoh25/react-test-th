@@ -11,3 +11,7 @@ moment.lang('es', {
 export const convertDate = (date,format) => {
     return moment(date).format(format)
 }
+
+export const convertDivisa = (number) => {
+    return new Intl.NumberFormat('es-US').format(number)
+}

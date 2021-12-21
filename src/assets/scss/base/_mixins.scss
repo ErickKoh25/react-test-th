@@ -22,18 +22,11 @@ $skew-cards-active: -1.5deg;
     list-style:none;
     text-align: left;
 }
-@mixin boxes-container($width: 100%, $height:10vh, $display:inline-flex, $hsl: 0px, $vsl: 7px, $blur: 4px, $spr: -8px) {
-    width: $width;
-    display: $display;
-    box-shadow: $hsl $vsl $blur $spr $boxes;
-    height: $height;
-    min-height: 30px;
-}
 
-@mixin inline-flex($display:inline-flex,$justify:center,$align:center) {
+@mixin inline-flex($display:inline-flex,$justify:center,$align:center,$width:100%) {
     display: $display;
     justify-content: $justify;
-    width: 100%;
+    width: $width;
     align-items: $align;
 }
 
@@ -53,7 +46,13 @@ $skew-cards-active: -1.5deg;
     position: $position;
     z-index: 1;
 }
-
+@mixin boxes-container($width: 100%, $height:10vh, $display:inline-flex, $hsl: 0px, $vsl: 7px, $blur: 4px, $spr: -8px) {
+    width: $width;
+    display: $display;
+    box-shadow: $hsl $vsl $blur $spr $boxes;
+    height: $height;
+    min-height: 30px;
+}
 @mixin card-styles() {
     height: 70px;
     border-radius: 5px;
@@ -81,7 +80,7 @@ $skew-cards-active: -1.5deg;
         top: 0;
         transform: skewY($skew-cards);
         z-index: -1;
-        background-image: linear-gradient(to bottom,rgba(30,28,34,0.75),#1e1c22 0.75rem);
+        background-image: linear-gradient(to bottom,rgba(30,28,34,0.75), $primary 0.75rem);
     }
     &:hover {
         // border: 2px $light-grey solid;

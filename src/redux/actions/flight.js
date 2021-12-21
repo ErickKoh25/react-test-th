@@ -29,3 +29,18 @@ export const SELECT_DESTINATION_FLIGHT = (data) => ({
     type: types.SELECT_DESTINATION_FLIGHT,
     payload: data
 })
+
+export const CLEAR_LOADED_FLIGHTS = () => ({
+    type: types.CLEAR_LOADED_FLIGHTS,
+    payload: true
+})
+
+export const CLEAR_DATA_SEARCHBOX_FLIGHT = (data) => ({
+    type: types.CLEAR_DATA_SEARCHBOX_FLIGHT,
+    payload: data
+})
+
+export const UPDATE_PASSENGER_FLIGHT = (data) => ({
+    type: types.UPDATE_PASSENGER_FLIGHT,
+    payload: data
+})
