@@ -1,5 +1,5 @@
 import React from 'react'
-import { Redirect, Routes, Route, Switch, Navigate } from 'react-router'
+import { Route, Navigate } from 'react-router'
 import { NavBar } from '../components/NavBar/NavBar'
 import { Home } from '../components/Home/Home'
 import { MyReservation } from '../components/MyReservation/MyReservation'

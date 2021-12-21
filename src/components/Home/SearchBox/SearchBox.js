@@ -1,10 +1,10 @@
 import React, { memo, useEffect, useRef, useState } from 'react'
+import DateRangePicker from '@wojtekmaj/react-daterange-picker'
+import 'react-calendar/dist/Calendar.css';
+import validator from 'validator'
 import { SelectPassengers } from '../../General/Selectors/SelectPassengers'
 import { SwitchSelector } from '../../General/Selectors/SwitchSelector'
 import { SearchInput } from './SearchInput/SearchInput'
-import Calendar from 'react-calendar';
-import DateRangePicker from '@wojtekmaj/react-daterange-picker'
-import 'react-calendar/dist/Calendar.css';
 import { ResultSearch } from '../../Modal/ResultSearch';
 import { loadCitys, searchFlights } from '../../../helpers/loadData';
 import { setCitys } from '../../../redux/actions/citys';
@@ -18,6 +18,7 @@ export const SearchBox = () => {
     const [dates, onChangeDate] = useState(new Date());
     const [rounded, setRounded] = useState(false)
     const [openModal,setOpenModal] = useState(false)
+    const [disableSearch, setDisableSearch] = useState(true)
     
     const [formValues,handleInputChange] = useForm({
         id_departure:null,
@@ -26,6 +27,7 @@ export const SearchBox = () => {
         dates: null,
         passengers:1
     })
+    const {id_departure,id_arrival} = formValues
 
     useEffect(async() => {
         const citys = await loadCitys()
@@ -35,6 +37,15 @@ export const SearchBox = () => {
     useEffect(() => {
         handleInputChange({target:{name:'dates',value:dates}})
     }, [dates])
+
+    useEffect(() => {
+        if(id_departure == null || id_arrival == null) {
+            setDisableSearch(true)
+        }else {
+            setDisableSearch(false)
+        }
+    },[id_departure,id_arrival])
+
 
     const handleSelectPassengers = (number) => {
         handleInputChange({target:{name:'passengers',value:number}})
@@ -55,13 +66,11 @@ export const SearchBox = () => {
     }
 
     const handleSearchFlight = () => {
-
         dispatch(SET_DATA_SEARCHBOX_FLIGHT(formValues))
         dispatch(SEARCHING_FLIGHTS(true))
 
         dispatch(searchFlights)
         setOpenModal(true)
-        
     }
     return (
         <>
@@ -100,7 +109,7 @@ export const SearchBox = () => {
                             </div>
                         </div>
                         <div className='ml-3'>
-                            <button className='btn btn-primary' onClick={handleSearchFlight}>
+                            <button className='btn btn-primary' disabled={disableSearch} onClick={handleSearchFlight}>
                                 Buscar
                                 <i className="fas fa-search ml-1"></i> 
                             </button>

@@ -4,11 +4,13 @@ import { convertDivisa } from '../../../helpers/functions'
 import { DELETE_ALL_FLIGHTS, DELETE_FLIGHT } from '../../../redux/actions/cart'
 import { ActionButton } from '../../General/Button/ActionButton'
 import { ItemCard } from '../../General/Cards/ItemCard'
+import { SHOW_HIDE_MODAL_FORM } from '../../../redux/actions/reserve';
 
-export const ListReservations = () => {
+export const ListCart = ({flights}) => {
+    
     const dispatch = useDispatch()
-    const {cart_flights} = useSelector(state => state.cart)
     const [total,setTotal] = useState(0)
+
     const action = { 
         text: '',
         icon: 'fas fa-trash-alt'
@@ -17,14 +19,17 @@ export const ListReservations = () => {
         text: 'Continuar',
         icon:''
     }
-
+    
     useEffect(() => {
-        if(cart_flights.length > 0) {
-            let total = cart_flights.reduce((a,b) => {return (a.passengers * a.ammount) + ( b.passengers*b.ammount)})
+        if(flights.length > 1) {
+            let total = flights.reduce((a,b) => {return (a.passengers * a.ammount) + ( b.passengers*b.ammount)})
+            setTotal(total)
+        } else if(flights.length==1){
+            let total = flights[0].passengers * flights[0].ammount
             setTotal(total)
         }
         
-    }, [cart_flights])
+    }, [flights])
 
     const handleDelete = (id) => {
         dispatch(DELETE_FLIGHT({id}))
@@ -34,21 +39,21 @@ export const ListReservations = () => {
         dispatch(DELETE_ALL_FLIGHTS())
     }
 
-    const handleReserve = () => {
-
+    const handleContinue = () => {
+        dispatch(SHOW_HIDE_MODAL_FORM(true))
     }
 
     return (
-        <div className='container-checkout'>
+        <div className='container-cart'>
             <div className='container-title mb-3'>
                 <h2>
-                    Lista de Reservaciones
+                    Vuelos seleccionados
                 </h2>
                 <ActionButton  className={'delete-all'} id={''} type={''} action={action} func={handleDeleteAll}/>
             </div>
             <div className='container-cards pr-3 pl-3'>
-                {
-                    cart_flights.map((c,i)=> (
+                {   
+                    flights.map((c,i)=> (
                         <ItemCard 
                             key={i}
                             id={c.id} 
@@ -67,7 +72,9 @@ export const ListReservations = () => {
             </div>
             <div className='container-summary'>
                 <div className='show-total'>Total: $ {convertDivisa(total)} MXN</div>
-                <ActionButton  className={'reserve'} id={''} type={''} action={reservar} func={handleReserve}/>  
+                {
+                    <ActionButton className={'reserve'} id={''} type={''} action={reservar} func={handleContinue}/>  
+                }
             </div>
         </div>
     )

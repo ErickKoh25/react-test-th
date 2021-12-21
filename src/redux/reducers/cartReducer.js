@@ -1,18 +1,19 @@
 import { types } from "../types/types";
 const initialState = { 
-    cart_flights: []
+    flights: [],
+    form_valid: false
 };
 export const cartReducer = (state=initialState, action) => {
     switch(action.type) {
         case types.ADD_NEW_FLIGHTS:
             return {
                 ...state,
-                cart_flights: state.cart_flights.concat(action.payload)
+                flights: state.flights.concat(action.payload)
             }
         case types.UPDATE_PASSENGER_FLIGHT:
             return {
                 ...state,
-                cart_flights: state.cart_flights.filter(flight => {
+                flights: state.flights.filter(flight => {
                     if(flight.id == action.payload.id){
                         flight.passenger = flight.passenger + action.payload.passenger
                     }
@@ -22,18 +23,18 @@ export const cartReducer = (state=initialState, action) => {
         case types.DELETE_FLIGHT:
             return {
                 ...state,
-                cart_flights: state.cart_flights.filter( flight => flight.id != action.payload.id)
+                flights: state.flights.filter( flight => flight.id != action.payload.id)
             }
         case types.REMOVE_LAST_FLIGHT: {
             return {
                 ...state,
-                cart_flights: state.cart_flights.pop()
+                flights: state.flights.pop()
             }
         }
         case types.DELETE_ALL_FLIGHTS: {
             return {
                 ...state,
-                cart_flights: []
+                flights: []
             }
         }
         default:
