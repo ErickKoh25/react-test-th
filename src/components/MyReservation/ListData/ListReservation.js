@@ -24,6 +24,30 @@ export const ListReservation = ({reservations}) => {
     }, [reservations])
     return (
         <div className='container-checkout'>
+            <div className='list-data-form-user'>
+                <div className='container-title mb-3'>
+                    <h2>
+                        Información del Cliente
+                    </h2>
+                </div>
+                <div className='container-info'>
+                    <div className='data'>
+                        <b>Nombre(s):</b> {name}
+                    </div>
+                    <div className='data'>
+                        <b>Apellido(s):</b> {lastname}
+                    </div>
+                    <div className='data'>
+                        <b>Dirección:</b> {address}
+                    </div>
+                    <div className='data'>
+                        <b>Email:</b> {email}
+                    </div>
+                </div>
+                <div className='container-summary'>
+                    <div className='show-total'>Total: $ {convertDivisa(total)} MXN</div>
+                </div>
+            </div>
             <div className='list-reservations'>
                 <div className='container-title mb-3'>
                     <h2>
@@ -50,30 +74,6 @@ export const ListReservation = ({reservations}) => {
                     }
                 </div>
                 
-            </div>
-            <div className='list-data-form-user'>
-                <div className='container-title mb-3'>
-                    <h2>
-                        Información del Cliente
-                    </h2>
-                </div>
-                <div className='container-info'>
-                    <div className='data'>
-                        <b>Nombre(s):</b> {name}
-                    </div>
-                    <div className='data'>
-                        <b>Apellido(s):</b> {lastname}
-                    </div>
-                    <div className='data'>
-                        <b>Dirección:</b> {address}
-                    </div>
-                    <div className='data'>
-                        <b>Email:</b> {email}
-                    </div>
-                </div>
-                <div className='container-summary'>
-                    <div className='show-total'>Total: $ {convertDivisa(total)} MXN</div>
-                </div>
             </div>
         </div   >
     )

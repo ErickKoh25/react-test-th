@@ -305,8 +305,116 @@
     }
 }
 
-@include media(sm){
-    .background-image {
-        height: 100%;
+@include media(xs){
+    .home {
+        .container{
+            width: 100%;
+        }
+        .background-image {
+            height: 40%!important;
+            p{
+                font-size: 18px;
+                width: 60%;
+            }
+        }
+        .search-box {
+            position: relative!important;
+            width: 100%;
+            border-radius: 0;
+            @include inline-flex($display:block,$justify:center,$align:center,$width:100%);
+            .detail-info {
+                @include inline-flex($display:block,$justify:center,$align:center,$width:100%)
+            }
+            .inputs-container {
+                @include inline-flex($display:block,$justify:center,$align:center,$width:100%);
+                text-align:center;
+                .home-input{
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    box-sizing: border-box;
+                }
+            }
+            .calendar-container {
+                @include inline-flex($display:block,$justify:center,$align:center,$width:100%);
+                text-align: center;
+                .input-calendar {
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    .my-calendar {
+                        width: 95%;
+                    }
+                }
+                .ml-3 {
+                    margin-left: 0;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                    button {
+                        width: 95%;
+                    }
+                }
+            }
+            .react-daterange-picker__inputGroup input{
+                width: 30%;
+            }
+        }
+        .info-boxes{
+            margin-top: 0;
+            .item-box {
+                height: auto;
+                @include inline-flex($display:block);
+                .background {
+                    min-height: 250px;
+                    width: 100%;
+                }
+                .info{
+                    padding-top: 35px;
+                    box-sizing: border-box;
+                    width: 100%;
+                    height: auto;
+                    min-height: 200px;
+                    @include text-style($size:14px);
+                    h2{
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
+        .result-search {
+            .empty-search {
+                width: 90%;
+                .text-info {
+                    font-size: 14px;
+                }
+            }
+            .data-search {
+                width: 90%;
+                .info-flight {
+                    font-size: 14px;
+                }
+                .exit-search {
+                    margin-right: 10px;
+                    margin-left: 10px;
+                    h4 {
+                        font-size: 14px;
+                        text-align: center;
+                    }
+                    .container-cards {
+                        .card {
+                            .actions {
+                                button {
+                                    width: 48%!important;
+                                }
+                            }
+                        }
+                    }
+                }
+                .success-add {
+                    button {
+                        margin-top: 10px;
+                        margin-bottom: 10px;
+                    }
+                }
+            }
+        }
     }
 }

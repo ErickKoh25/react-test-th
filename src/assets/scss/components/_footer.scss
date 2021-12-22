@@ -63,3 +63,35 @@
         }
     }
 }
+
+@include media(xs){
+    .footer{
+        height: auto;
+        @include inline-flex($display:block);
+        text-align:center;
+        .contact, .logo-footer, .social-media {
+            width: 100%;
+            text-align: center;
+        }
+        .logo-footer {
+            display: none;
+        }
+        .contact, .social-media {
+            padding-top: 20px;
+            padding-bottom: 20px;
+            box-sizing: border-box;
+        }
+        .contact {
+            span{
+                margin-left: 0;
+            }
+        }
+        .social-media {
+            margin-bottom: 20px;
+            h2{
+                margin-bottom: 20px;
+            }
+        }
+    }
+    
+}

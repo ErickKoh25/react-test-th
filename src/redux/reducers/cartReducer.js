@@ -28,7 +28,7 @@ export const cartReducer = (state=initialState, action) => {
         case types.REMOVE_LAST_FLIGHT: {
             return {
                 ...state,
-                flights: state.flights.pop()
+                flights: state.flights.slice(0,-1)
             }
         }
         case types.DELETE_ALL_FLIGHTS: {

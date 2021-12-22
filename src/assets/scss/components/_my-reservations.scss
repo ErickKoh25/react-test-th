@@ -28,6 +28,7 @@
                 } 
             }
             .list-data-form-user {
+                order: 2;
                 box-shadow: -6px 1px 8px -6px rgba(0,0,0,0.54);
                 .container-info{
                     width: 90%;
@@ -193,6 +194,76 @@
                 button:disabled {
                     background-color: lighten($color:$primary,$amount:25);
                 }
+            }
+        }
+    }
+}
+
+@include media(xs){
+    .my-reservations {
+        .container-data {
+            width: 90%;
+            .container-cart{
+                width: 100%;
+                .container-summary {
+                    text-align: center;
+                    @include inline-flex($display:block);
+                    .show-total {
+                        margin-bottom:10px;
+                    }
+                }
+            }
+            .container-checkout {
+                display: block;
+                height: auto;
+                .list-data-form-user, .list-reservations {
+                    width: 100%;
+                    box-shadow: none;
+                }
+                .list-data-form-user {
+                    padding-top: 20px;
+                    padding-bottom: 20px;
+                    box-sizing: border-box;
+                    h2{
+                        font-size: 20px;
+                    }
+                    .data{
+                        font-size: 14px;
+                    }
+                    .container-summary {
+                        .show-total {
+                            padding-top: 10px;
+                            font-size: 16px;
+                            box-sizing: border-box;
+                        }
+                    }
+                }
+                .list-reservations {
+                    h2{
+                        font-size: 20px;
+                    }
+                    .container-cards {
+                        padding-right: 5px;
+                        padding-left: 5px;
+                        min-height: 250px;
+                    }
+                }
+            }
+            .container-empty {
+                padding-top:62%;
+                h2 {
+                    font-size: 24px;
+                }
+                h3{
+                    font-size: 18px;
+                }
+            }
+        }
+        .modal-form {
+            .container-form {
+                width: 90%;
+                padding-left: 0;
+                padding-right: 0;
             }
         }
     }
