@@ -199,12 +199,23 @@
     }
 }
 
-@include media(xs){
+@include media(sm){
     .my-reservations {
         .container-data {
+            display: block;
+            min-height: 90%;
+            position: relative;
+            margin-top: 100px;
             width: 90%;
             .container-cart{
                 width: 100%;
+                .card {
+                    .actions {
+                        button { 
+                            width: 35px!important;
+                        }
+                    }
+                }
                 .container-summary {
                     text-align: center;
                     @include inline-flex($display:block);
@@ -218,12 +229,12 @@
                 height: auto;
                 .list-data-form-user, .list-reservations {
                     width: 100%;
-                    box-shadow: none;
                 }
                 .list-data-form-user {
                     padding-top: 20px;
-                    padding-bottom: 20px;
+                    padding-bottom: 30px;
                     box-sizing: border-box;
+                    box-shadow: none;
                     h2{
                         font-size: 20px;
                     }
@@ -250,7 +261,8 @@
                 }
             }
             .container-empty {
-                padding-top:62%;
+                padding-top: 0;
+                @include inline-flex;
                 h2 {
                     font-size: 24px;
                 }

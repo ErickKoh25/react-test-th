@@ -28,9 +28,6 @@ export const ListData = () => {
                         <h2>
                             Tu carrito está vacío
                         </h2>
-                        <h3>
-                            Selecciona tus vuelos y aquí apareceran!
-                        </h3>
                     </div> 
                     : ''
             }

@@ -305,7 +305,7 @@
     }
 }
 
-@include media(xs){
+@include media(sm){
     .home {
         .container{
             width: 100%;

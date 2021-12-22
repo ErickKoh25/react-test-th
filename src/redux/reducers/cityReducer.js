@@ -1,6 +1,8 @@
 import { types } from "../types/types";
-
-export const cityReducer = (state={}, action) => {
+const initialState = {
+    citys:[]
+}
+export const cityReducer = (state=initialState, action) => {
     switch(action.type) {
         case types.LOADED_CITYS:
             return {

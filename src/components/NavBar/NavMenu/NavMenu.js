@@ -1,7 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { ListUl } from '../../General/List/ListUl'
 
 export const NavMenu = () => {
+    const [active, setActive] = useState(false)
     const list = [
         {
             name:'Mis Reservaciones',
@@ -10,8 +11,11 @@ export const NavMenu = () => {
         }
     ]
     return (
-        <div className='menu'>
-            <ListUl list={list} />
-        </div>
+        <>  
+            <i className="fas fa-bars pointer" onClick={()=>{setActive(!active)}}></i>
+            <div className={`menu ${(active) ? 'active' : ''}`}>
+                <ListUl list={list} />
+            </div>
+        </>
     )
 }

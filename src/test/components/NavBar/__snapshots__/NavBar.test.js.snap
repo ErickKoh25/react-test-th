@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Pruebas en NavBar Debe mostrarse correctamente 1`] = `
+<nav
+  className="navbar"
+>
+  <div
+    className="navbar-brand"
+  >
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      <h2>
+        Mi Aerolinea
+        <i
+          className="fas fa-plane"
+        />
+      </h2>
+    </a>
+  </div>
+  Array [
+    <i
+      className="fas fa-bars pointer"
+      onClick={[Function]}
+    />,
+    <div
+      className="menu "
+    >
+      <ul>
+        <li
+          key="0"
+        >
+          <a
+            className=""
+            href="/my-reservations"
+            onClick={[Function]}
+          >
+             
+            Mis Reservaciones
+          </a>
+        </li>
+      </ul>
+    </div>,
+  ]
+</nav>
+`;

@@ -6,15 +6,18 @@ import { Loader } from '../General/Loader/Loader';
 
 export const ResultSearch = memo(({className,func}) => {
 
-    const {flights_from_origin, flights_from_destination, searching_flight} = useSelector(state => state.flight)
+    const {flights_from_origin, flights_from_destination, searching_flight, data_searchbox_flight:round_flight} = useSelector(state => state.flight)
 
     const [showLoader, setShowLoader] = useState(false)
     const [openDataSearch, setOpenDataSearch] = useState('')
     const [isEmpty,setIsEmpty] = useState('')
 
     useEffect(() => {
-        
-        if(flights_from_origin.length > 0) {
+        if(round_flight && flights_from_origin.length > 0 && flights_from_destination.length > 0){
+            setIsEmpty('')
+            setOpenDataSearch('open')
+        }
+        else if(!round_flight && flights_from_origin.length > 0) {
             setIsEmpty('')
             setOpenDataSearch('open')
          } else if(searching_flight) {
