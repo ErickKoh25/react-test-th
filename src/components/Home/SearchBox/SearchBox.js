@@ -1,7 +1,6 @@
 import React, { memo, useEffect, useRef, useState } from 'react'
 import DateRangePicker from '@wojtekmaj/react-daterange-picker'
 import 'react-calendar/dist/Calendar.css';
-import validator from 'validator'
 import { SelectPassengers } from '../../General/Selectors/SelectPassengers'
 import { SwitchSelector } from '../../General/Selectors/SwitchSelector'
 import { SearchInput } from './SearchInput/SearchInput'

@@ -1,23 +1,14 @@
 {
   "files": {
-    "main.css": "/react-test-th/static/css/main.d9f68b9b.css",
-    "main.js": "/react-test-th/static/js/main.824af16d.js",
-    "static/media/block3.jpg": "/react-test-th/static/media/block3.d37228de776119a9f901.jpg",
-    "static/media/wallpaperbetter.com_3840x1080 (1).jpg": "/react-test-th/static/media/wallpaperbetter.com_3840x1080 (1).ffbbdf76d7da2a219446.jpg",
-    "static/media/bloeck3.jpg": "/react-test-th/static/media/bloeck3.715c1aeba3ad034287d2.jpg",
-    "static/media/block2.jpg": "/react-test-th/static/media/block2.d0fc348ff484ceac2b61.jpg",
-    "static/media/block1.jpg": "/react-test-th/static/media/block1.26e5d58a53b656dd80d7.jpg",
-    "static/media/fonddo.jpg": "/react-test-th/static/media/fonddo.490b437251e5fc2fd552.jpg",
-    "static/media/fodndo.jpg": "/react-test-th/static/media/fodndo.d3a1df09c79ae7122718.jpg",
-    "static/media/block32.jpg": "/react-test-th/static/media/block32.34826a47df3df69e9061.jpg",
-    "static/media/fondo.jpg": "/react-test-th/static/media/fondo.d3837767bbe4e912fab0.jpg",
+    "main.css": "/react-test-th/static/css/main.a151bd30.css",
+    "main.js": "/react-test-th/static/js/main.2333604e.js",
     "index.html": "/react-test-th/index.html",
     "static/media/loading.svg": "/react-test-th/static/media/loading.0c561494ccf552cc58f773170c3ae335.svg",
-    "main.d9f68b9b.css.map": "/react-test-th/static/css/main.d9f68b9b.css.map",
-    "main.824af16d.js.map": "/react-test-th/static/js/main.824af16d.js.map"
+    "main.a151bd30.css.map": "/react-test-th/static/css/main.a151bd30.css.map",
+    "main.2333604e.js.map": "/react-test-th/static/js/main.2333604e.js.map"
   },
   "entrypoints": [
-    "static/css/main.d9f68b9b.css",
-    "static/js/main.824af16d.js"
+    "static/css/main.a151bd30.css",
+    "static/js/main.2333604e.js"
   ]
 }
