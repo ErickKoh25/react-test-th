@@ -11,15 +11,15 @@ import { setCitys } from '../../../redux/actions/citys';
 import { useDispatch, useSelector } from 'react-redux';
 import { useForm } from '../../../hooks/useForm';
 import { SET_DATA_SEARCHBOX_FLIGHT, SEARCHING_FLIGHTS } from '../../../redux/actions/flight';
-export const SearchBox = () => {
+export const SearchBox =() => {
 
     const dispatch = useDispatch()
     const {searching_flight} = useSelector(state => state.flight)
-    const [dates, onChangeDate] = useState(new Date());
+    const [dates, onChangeDate] = useState(new Date())
     const [rounded, setRounded] = useState(false)
     const [openModal,setOpenModal] = useState(false)
-    const [disableSearch, setDisableSearch] = useState(true)
-    
+    const [disableSearch, setDisableSearch] = useState(true)  
+    const [transitionSB, setTransitionSB] = useState('')
     const [formValues,handleInputChange] = useForm({
         id_departure:null,
         id_arrival: null,
@@ -72,10 +72,14 @@ export const SearchBox = () => {
         dispatch(searchFlights)
         setOpenModal(true)
     }
+
+    setTimeout(()=>{
+        setTransitionSB('transition')
+    },300)
     return (
         <>
             <div className='container'>
-                <div className='search-box'>
+                <div className={`search-box ${transitionSB}`}>
                     <div className='detail-info'>
                         <div className='switch-selector mt-3'>
                             Sencillo

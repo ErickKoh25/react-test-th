@@ -19,12 +19,13 @@
     .search-box {
         border-radius: 10px;
         position: absolute;
-        top: -75%;
+        top: 300%;
         left: 0;
         right: 0;
         margin: auto;
         background-color: lighten($color:$primary, $amount: 3);
         padding-bottom: 15px;
+        transition: top 1s ease-out;
         @include boxes-container($width:85%,$height:auto, $display:block, $hsl: 0px, $vsl: 0px, $blur: 13px, $spr: -5px);
         .detail-info, .switch-selector, .select-passengers {
             font-weight: 600;
@@ -106,8 +107,13 @@
             }
         }
     }
+    .search-box.transition{
+        top: -75%;;
+        transition: top 1s ease-out;
+    }
     .info-boxes {
         margin-top: 10%;
+        overflow: hidden;
         .item-box {
             height: 400px;
             @include inline-flex($display:flex);
