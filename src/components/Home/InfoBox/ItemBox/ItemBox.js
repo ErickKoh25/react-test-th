@@ -26,7 +26,8 @@ export const ItemBox = ({it,i}) => {
     }, []);
     return (
         <div className={`item-box it-${i} ${styleBox}`}>
-            <div className={`background ${it.impar}`} style={{backgroundImage:`url(${require(`../../../../assets/img/home/${it.img}`)})`}}>
+            {/* <div className={`background ${it.impar}`} style={{backgroundImage:`url(${require(`../../../../assets/img/home/${it.img}`)})`}}> */}
+            <div className={`background ${it.impar}`}>
             </div>
             <div className={`info pr-4 pl-4 ${it.impar} info-${i}`}>
                 <h2> {it.title} </h2>
