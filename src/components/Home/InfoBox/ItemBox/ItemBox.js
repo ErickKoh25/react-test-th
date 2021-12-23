@@ -7,19 +7,16 @@ export const ItemBox = ({it,i}) => {
             if(window.pageYOffset>=300) {
                 if(i==0) {
                     setStyleBox('transition')
-                    console.log(window.pageYOffset)
                 }
             }    
             if(window.pageYOffset>=420) {
                 if(i==1){
                     setStyleBox('transition')
-                    console.log(window.pageYOffset)
                 }
             }            
             if(window.pageYOffset>= 1234) {
                 if(i==2) {
                     setStyleBox('transition')
-                    console.log(window.pageYOffset)
                 }
             }    
         }
