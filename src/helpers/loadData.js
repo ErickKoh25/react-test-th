@@ -4,7 +4,7 @@ import { SEARCHING_FLIGHTS, SET_FLIGHTS_FROM_DESTINATION, SET_FLIGHTS_FROM_ORIGI
 import { convertDate } from '../helpers/functions'
 
 export const loadCitys = async () => {
-    const citysSnap = await db.collection('Ciudades').orderBy('name').get()
+    const citysSnap = await db.collection('Cities').orderBy('name').get()
     let citys = []
     citysSnap.forEach( snap=> {
         citys.push({
@@ -32,7 +32,7 @@ export const searchFlights = async (dispatch, getState) => {
     }
  
     const q = query(
-        collection(db,'Horarios'), 
+        collection(db,'Flights'), 
         where("origen", "==",id_departure),
         where("destino", "==",id_arrival),
         where("date", ">=", new Date(date1.start)),
@@ -52,7 +52,7 @@ export const searchFlights = async (dispatch, getState) => {
     if(round_flight) {
         // console.log(date2)
         const q2 = query(
-            collection(db,'Horarios'), 
+            collection(db,'Flights'), 
             where("origen", "==",id_arrival),
             where("destino", "==",id_departure),
             where("date", ">=", new Date(date2.start)),

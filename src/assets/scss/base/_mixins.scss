@@ -30,11 +30,11 @@ $skew-cards-active: -1.5deg;
     align-items: $align;
 }
 
-@mixin div-background($height:100%) {
+@mixin div-background($height:100%,$bsize:cover,$bposition:center) {
     min-height: $height;
-    background-size: cover;
+    background-size: $bsize;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: $bposition;
 }
 
 @mixin div-absolute-center($position:absolute,$zindex:1) {

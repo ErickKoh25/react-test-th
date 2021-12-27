@@ -128,7 +128,7 @@
             height: 400px;
             @include inline-flex($display:flex);
             .background {
-                @include div-background;
+                @include div-background($bsize:cover);
                 width: 70%;
             }
             .info {
@@ -139,7 +139,7 @@
                     margin-top: 15%;
                 }
                 p {
-                    margin-top: 20px;
+                    margin-top: 20px;   
                     text-align: justify;
                 }
             }
