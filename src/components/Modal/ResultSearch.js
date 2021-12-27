@@ -6,7 +6,7 @@ import { Loader } from '../General/Loader/Loader';
 
 export const ResultSearch = memo(({className,func}) => {
 
-    const {flights_from_origin, flights_from_destination, searching_flight, data_searchbox_flight:round_flight} = useSelector(state => state.flight)
+    const {flights_from_origin, flights_from_destination, searching_flight, data_searchbox_flight:{round_flight}} = useSelector(state => state.flight)
 
     const [showLoader, setShowLoader] = useState(false)
     const [openDataSearch, setOpenDataSearch] = useState('')

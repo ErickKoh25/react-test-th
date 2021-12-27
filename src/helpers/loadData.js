@@ -1,9 +1,10 @@
 import { db } from "../config/firebase-config";
 import { collection, orderBy, query, where, getDocs } from "firebase/firestore";
 import { SEARCHING_FLIGHTS, SET_FLIGHTS_FROM_DESTINATION, SET_FLIGHTS_FROM_ORIGIN } from "../redux/actions/flight";
+import { convertDate } from '../helpers/functions'
 
 export const loadCitys = async () => {
-    const citysSnap = await db.collection('Ciudades').get()
+    const citysSnap = await db.collection('Ciudades').orderBy('name').get()
     let citys = []
     citysSnap.forEach( snap=> {
         citys.push({
@@ -11,11 +12,7 @@ export const loadCitys = async () => {
             ...snap.data()
         })
     })
-    citys = citys.sort(SortArray)
     return citys
-}
-export const SortArray = (x,y) => {
-    return x.name.localeCompare(y.name);
 }
 
 export const searchFlights = async (dispatch, getState) => {
@@ -24,20 +21,27 @@ export const searchFlights = async (dispatch, getState) => {
     let flights_from_origin = []
     let flights_from_return = []
 
-    const date1 = (round_flight) ? dates[0] : dates
-    const date2 = (round_flight) ? dates[1] : null
-    
-    // 1er Vuelo
+    const date1 = {
+        start: convertDate((round_flight) ? dates[0] : dates,'YYYY-MM-DD 00:00:00'),
+        end: convertDate((round_flight) ? dates[0]:dates,'YYYY-MM-DD 23:59:59')
+    }
+   
+    const date2 = {
+        start: convertDate((round_flight) ? dates[1]:null,'YYYY-MM-DD 00:00:00'),
+        end: convertDate((round_flight) ? dates[1]:null,'YYYY-MM-DD 23:59:59')
+    }
+ 
     const q = query(
         collection(db,'Horarios'), 
         where("origen", "==",id_departure),
         where("destino", "==",id_arrival),
-        where("date", ">=", date1),
+        where("date", ">=", new Date(date1.start)),
+        where("date", "<=", new Date(date1.end)),
         orderBy("date","asc")
     )
 
     const querySnapshot = await getDocs(q)
-    querySnapshot.forEach((d) =>{
+    querySnapshot.forEach((d) =>{   
         flights_from_origin.push({
             id:d.id,
             ...d.data()
@@ -45,13 +49,14 @@ export const searchFlights = async (dispatch, getState) => {
     })
 
     // 2do Vuelo
-    if(date2!=null) {
+    if(round_flight) {
         // console.log(date2)
         const q2 = query(
             collection(db,'Horarios'), 
             where("origen", "==",id_arrival),
             where("destino", "==",id_departure),
-            where("date", "<=",date2),
+            where("date", ">=", new Date(date2.start)),
+            where("date", "<=", new Date(date2.end)),
             orderBy("date","asc")
         )
         const querySnapshot2 = await getDocs(q2)
@@ -78,8 +83,7 @@ export const searchFlights = async (dispatch, getState) => {
         fd.city_arr = city_arr
         return fd
     })
-    console.log(flights_from_origin)
-    console.log(flights_from_return)
+    
     setTimeout(() => {
         dispatch(SEARCHING_FLIGHTS(false))
     }, 2500)

@@ -1,26 +1,6 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
-export const ItemBox = ({it,i}) => {
-    const [styleBox, setStyleBox] = useState('')
-    useEffect(() => {
-        window.onscroll = () => {
-            if(window.pageYOffset>=300) {
-                if(i==0) {
-                    setStyleBox('transition')
-                }
-            }    
-            if(window.pageYOffset>=420) {
-                if(i==1){
-                    setStyleBox('transition')
-                }
-            }            
-            if(window.pageYOffset>= 1234) {
-                if(i==2) {
-                    setStyleBox('transition')
-                }
-            }    
-        }
-    }, []);
+export const ItemBox = ({it,i,styleBox}) => {
     return (
         <div className={`item-box it-${i} ${styleBox}`}>
             <div className={`background ${it.impar}`} style={{backgroundImage:`url(${require(`../../../../assets/img/home/${it.img}`)})`}}>
