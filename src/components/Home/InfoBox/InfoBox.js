@@ -2,6 +2,23 @@ import React, { memo, useEffect, useState } from 'react'
 import { ItemBox } from './ItemBox/ItemBox'
 
 export const InfoBox = memo(() => {
+
+    const [styleBox, setStyleBox] = useState({})
+    
+    useEffect(() => {
+        window.onscroll = () => {
+            if(window.pageYOffset >= 250 && window.pageYOffset < 499) { 
+                setStyleBox(prevState => ({...prevState, box1:'transition1'}))
+            }    
+            else if(window.pageYOffset >= 540 && window.pageYOffset <= 749) {
+                setStyleBox(prevState => ({...prevState, box2:'transition2'}))
+            }            
+            else if(window.pageYOffset >=  950) {
+                setStyleBox(prevState => ({...prevState, box3:'transition3'}))
+            }    
+        }
+    }, []);
+    
     const items = [
             {
                title:'Title 1',
@@ -22,24 +39,7 @@ export const InfoBox = memo(() => {
                 impar: ''
             }
         ]
-        const [styleBox, setStyleBox] = useState({})
-        useEffect(() => {
-            window.onscroll = () => {
-                if(window.pageYOffset >= 250 && window.pageYOffset < 499) { 
-                    console.log(window.pageYOffset)
-                    setStyleBox(prevState => ({...prevState, box1:'transition1'}))
-                }    
-                else if(window.pageYOffset >= 540 && window.pageYOffset <= 749) {
-                    console.log(window.pageYOffset)
-                    setStyleBox(prevState => ({...prevState, box2:'transition2'}))
-                }            
-                else if(window.pageYOffset >=  950) {
-                    console.log(window.pageYOffset)
-                    setStyleBox(prevState => ({...prevState, box3:'transition3'}))
-                }    
-            }
-        }, []);
-        console.log(styleBox)
+
     return (
         <div className='info-boxes'>
             {

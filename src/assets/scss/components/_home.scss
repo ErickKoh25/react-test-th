@@ -114,18 +114,14 @@
         transition: top 1s ease-out;
         animation: fadeIn 1s ease-in;
     }
-    @keyframes fadeIn {
-        0% { opacity: 0;}
-        25% { opacity: 0;}
-        50% { opacity: .45;}
-        75% { opacity: .75;}
-        100% { opacity: 1;}
-    }
     .info-boxes {
         margin-top: 10%;
         overflow: hidden;
         .item-box {
             height: 400px;
+            opacity: 0;
+            transition: top 2s ease-out;
+            animation: fadeIn 2s ease-out;
             @include inline-flex($display:flex);
             .background {
                 @include div-background($bsize:cover);
@@ -158,6 +154,10 @@
             .info-2 {
                 background-color: lighten($color:$primary,$amount:4);
             }
+        }
+        .item-box.transition1, .item-box.transition2, .item-box.transition3 {
+            opacity: 1;
+            transition: 1s ease-out;
         }
     }
     .result-search { 
@@ -433,4 +433,11 @@
             }
         }
     }
+}
+@keyframes fadeIn {
+    0% { opacity: 0;}
+    25% { opacity: 0;}
+    50% { opacity: .45;}
+    75% { opacity: .75;}
+    100% { opacity: 1;}
 }
