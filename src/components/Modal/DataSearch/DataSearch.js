@@ -70,7 +70,7 @@ export const DataSearch = ({className, items1, items2 , func}) => {
             {
                 (showRoute2 && round_flight) && <button className='return pointer btn btn-primary' onClick={handleReturn}><i className="fas fa-arrow-left"></i></button>
             }
-            <button className='closeModal pointer btn btn-primary' onClick={handleClearStoreFlights}><i className="fas fa-times"></i></button>
+            <button className='close-modal pointer btn btn-primary' onClick={handleClearStoreFlights}><i className="fas fa-times"></i></button>
             {
                 showRoute1 && <ContainerData type={'route1'} passengers={passengers} route={route1} items={items1} date={date1}/>
             }

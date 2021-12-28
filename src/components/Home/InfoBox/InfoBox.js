@@ -1,23 +1,22 @@
 import React, { memo, useEffect, useState } from 'react'
 import { ItemBox } from './ItemBox/ItemBox'
+import { useScroll } from '../../../hooks/useScroll';
 
 export const InfoBox = memo(() => {
 
     const [styleBox, setStyleBox] = useState({})
-    
+    const {scroll} = useScroll()
     useEffect(() => {
-        window.onscroll = () => {
-            if(window.pageYOffset >= 250 && window.pageYOffset < 499) { 
-                setStyleBox(prevState => ({...prevState, box1:'transition1'}))
-            }    
-            else if(window.pageYOffset >= 540 && window.pageYOffset <= 749) {
-                setStyleBox(prevState => ({...prevState, box2:'transition2'}))
-            }            
-            else if(window.pageYOffset >=  950) {
-                setStyleBox(prevState => ({...prevState, box3:'transition3'}))
-            }    
-        }
-    }, []);
+        if(scroll>= 250 && scroll < 499) { 
+            setStyleBox(prevState => ({...prevState, box1:'transition1'}))
+        }    
+        else if(scroll>= 540 && scroll <= 749) {
+            setStyleBox(prevState => ({...prevState, box2:'transition2'}))
+        }            
+        else if(scroll >=  950) {
+            setStyleBox(prevState => ({...prevState, box3:'transition3'}))
+        }    
+    }, [scroll]);
     
     const items = [
             {

@@ -181,6 +181,10 @@
             border-radius: 10px;
             @include div-absolute-center;
             @include inline-flex($width:45%, $display:flex);
+            .close-modal{ 
+                right: 5%;
+                @include style-modal-button
+            }
             h2{
                 @include text-style($size:25px, $weight:400, $style:normal, $color:$primary);
                 text-align:center;

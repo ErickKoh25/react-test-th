@@ -90,7 +90,16 @@ $skew-cards-active: -1.5deg;
         transform: skewY($skew-cards-active) scale(1.01);
     }
 }
-
+@mixin style-modal-button {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    min-width: 20px;
+    border-radius: 30px;
+    font-size: 14px;
+    text-align: center;
+    top: 5%;
+}
 
 // Responsive Media Queries
 $breackpoints: (

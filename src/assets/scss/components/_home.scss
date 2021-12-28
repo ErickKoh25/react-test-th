@@ -137,6 +137,7 @@
                 p {
                     margin-top: 20px;   
                     text-align: justify;
+                    @include text-style($size:16px,$style:italic,$color:$white);
                 }
             }
             .info.impar{
@@ -204,20 +205,13 @@
             background-color: $tertiary;
             border-radius: 10px;
             @include boxes-container($width:60%,$height:70%, $display:none, $hsl: 0px, $vsl: 0px, $blur: 13px, $spr: -5px);
-            .closeModal, .return{
-                position: absolute;
-                width: 30px;
-                height: 30px;
-                min-width: 20px;
-                border-radius: 30px;
-                font-size: 14px;
-                text-align: center;
-                top: 5%;
+            .close-modal, .return{
+                @include style-modal-button
             }
             .return{
                 left: 5%;
             }
-            .closeModal{
+            .close-modal{
                 right: 5%;
             }
             .info-flight {

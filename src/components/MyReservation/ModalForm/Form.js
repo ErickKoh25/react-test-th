@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 
 export const Form = (props) => {
-    const {name, lastname, address, email, handleInputChange, handleReserve} = props
+    const {name, lastname, address, email, handleInputChange, handleReserve, handleCloseModal} = props
     const {form_valid} = useSelector(state => state.reserve)
     const [showMessage, setShowMessage] = useState(false)
 
@@ -12,13 +12,13 @@ export const Form = (props) => {
         setTimeout(() => {
             handleReserve()
             setShowMessage(false)
-        }, 3000)
-        
+        }, 3000)    
     }
 
     return (
         <div className='modal-form'>
             <div className='container-form'>
+                <button className='close-modal pointer btn btn-primary' onClick={handleCloseModal}><i className="fas fa-times"></i></button>
                 <div>
                     {
                         !showMessage ?

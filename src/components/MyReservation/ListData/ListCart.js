@@ -40,6 +40,7 @@ export const ListCart = ({flights}) => {
     }
 
     const handleContinue = () => {
+        console.log('continue')
         dispatch(SHOW_HIDE_MODAL_FORM(true))
     }
 

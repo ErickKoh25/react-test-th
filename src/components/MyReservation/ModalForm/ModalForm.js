@@ -52,15 +52,15 @@ export const ModalForm = () => {
         dispatch(DELETE_ALL_FLIGHTS())
         dispatch(SHOW_HIDE_MODAL_FORM(false))
     }
+    const handleCloseModal = () => {
+        dispatch(SHOW_HIDE_MODAL_FORM(false))
+    }
 
     return (
         <>
             { 
-                openForm && <Form name={name} lastname={lastname} address={address} email={email} handleInputChange={handleInputChange} handleReserve={handleReserve} />
+                openForm && <Form name={name} lastname={lastname} address={address} email={email} handleInputChange={handleInputChange} handleReserve={handleReserve} handleCloseModal={handleCloseModal} />
             } 
-            {
-
-            }
         </>
     )
 }
