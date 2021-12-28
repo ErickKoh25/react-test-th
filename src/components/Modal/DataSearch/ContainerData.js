@@ -2,12 +2,13 @@ import React, { memo } from 'react'
 import { InfoFlight } from './InfoFlight';
 import { ItemCard } from '../../General/Cards/ItemCard';
 import { useDispatch, useSelector } from 'react-redux';
-import { SELECT_ORIGIN_FLIGHT, SELECT_DESTINATION_FLIGHT } from '../../../redux/actions/flight';
+import { SELECT_ORIGIN_FLIGHT, SELECT_DESTINATION_FLIGHT, UPDATE_PASSENGER_FLIGHT } from '../../../redux/actions/flight';
 import { ADD_NEW_FLIGHTS } from '../../../redux/actions/cart';
 
 export const ContainerData = memo((props) => {
     const dispatch = useDispatch()
     const {flights_from_origin, flights_from_destination} = useSelector(state => state.flight)
+    const {flights} = useSelector(state => state.cart)
 
     const {date,items,passengers,route,type} = props
 
@@ -16,7 +17,10 @@ export const ContainerData = memo((props) => {
         icon: 'fas fa-shopping-cart'
     }
     const handleClickAction = (id, type) => {
+
         let flight = null
+        let exist_flight_cart = flights.find(f=> f.id == id)
+
         if(type=='route1') {
             flight = flights_from_origin.find(f => f.id == id)
             flight.passengers = passengers
@@ -26,7 +30,12 @@ export const ContainerData = memo((props) => {
             flight.passengers = passengers
             dispatch(SELECT_DESTINATION_FLIGHT(true))
         }
-        dispatch(ADD_NEW_FLIGHTS(flight))
+
+        if(exist_flight_cart) {
+            dispatch(UPDATE_PASSENGER_FLIGHT(flight))
+        } else {
+            dispatch(ADD_NEW_FLIGHTS(flight))
+        }
     }
 
     return (

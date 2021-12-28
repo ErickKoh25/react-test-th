@@ -31,7 +31,7 @@ export const SearchBox =() => {
     useEffect(async() => {
         const citys = await loadCitys()
         dispatch(setCitys(citys))
-    }, [searching_flight])
+    }, [])
 
     useEffect(() => {
         handleInputChange({target:{name:'dates',value:dates}})

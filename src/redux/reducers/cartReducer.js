@@ -15,7 +15,7 @@ export const cartReducer = (state=initialState, action) => {
                 ...state,
                 flights: state.flights.filter(flight => {
                     if(flight.id == action.payload.id){
-                        flight.passenger = flight.passenger + action.payload.passenger
+                        flight.passengers = flight.passengers + action.payload.passengers
                     }
                     return flight
                 })
