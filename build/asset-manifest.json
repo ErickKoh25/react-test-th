@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/react-test-th/static/css/main.ead2d35c.css",
-    "main.js": "/react-test-th/static/js/main.8c1e6216.js",
+    "main.css": "/react-test-th/static/css/main.6ce65514.css",
+    "main.js": "/react-test-th/static/js/main.d3e5f3ab.js",
     "static/media/fodndo.jpg": "/react-test-th/static/media/fodndo.d3a1df09c79ae7122718.jpg",
     "static/media/block32.jpg": "/react-test-th/static/media/block32.34826a47df3df69e9061.jpg",
     "static/media/fondo.jpg": "/react-test-th/static/media/fondo.d3837767bbe4e912fab0.jpg",
@@ -10,11 +10,11 @@
     "static/media/block2.jpg": "/react-test-th/static/media/block2.ebe5e9bacc046481c95d.jpg",
     "index.html": "/react-test-th/index.html",
     "static/media/loading.svg": "/react-test-th/static/media/loading.a1e01660039986ccd80994903142a06e.svg",
-    "main.ead2d35c.css.map": "/react-test-th/static/css/main.ead2d35c.css.map",
-    "main.8c1e6216.js.map": "/react-test-th/static/js/main.8c1e6216.js.map"
+    "main.6ce65514.css.map": "/react-test-th/static/css/main.6ce65514.css.map",
+    "main.d3e5f3ab.js.map": "/react-test-th/static/js/main.d3e5f3ab.js.map"
   },
   "entrypoints": [
-    "static/css/main.ead2d35c.css",
-    "static/js/main.8c1e6216.js"
+    "static/css/main.6ce65514.css",
+    "static/js/main.d3e5f3ab.js"
   ]
 }
