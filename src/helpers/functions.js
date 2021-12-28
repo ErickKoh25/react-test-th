@@ -1,7 +1,6 @@
 import moment from 'moment'
 
-export const convertDate = (date,format) => {
-
+export const convertDate = (date,format,unix=false) => {
     moment.lang('es', {
         months: 'Enero_Febrero_Marzo_Abril_Mayo_Junio_Julio_Agosto_Septiembre_Octubre_Noviembre_Diciembre'.split('_'),
         monthsShort: 'Enero._Feb._Mar_Abr._May_Jun_Jul._Ago_Sept._Oct._Nov._Dec.'.split('_'),
@@ -9,7 +8,12 @@ export const convertDate = (date,format) => {
         weekdaysShort: 'Dom._Lun._Mar._Mier._Jue._Vier._Sab.'.split('_'),
         weekdaysMin: 'Do_Lu_Ma_Mi_Ju_Vi_Sa'.split('_')
     })
-    return moment(date).format(format)
+    if(unix) {
+        return moment.unix(date).format(format)
+    } else {
+        return moment(date).format(format)
+    }
+    
 }
 
 export const convertDivisa = (number) => {

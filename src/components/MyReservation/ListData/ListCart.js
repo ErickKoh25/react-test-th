@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { convertDivisa } from '../../../helpers/functions'
+import { convertDivisa, convertDate } from '../../../helpers/functions'
 import { DELETE_ALL_FLIGHTS, DELETE_FLIGHT } from '../../../redux/actions/cart'
 import { ActionButton } from '../../General/Button/ActionButton'
 import { ItemCard } from '../../General/Cards/ItemCard'
@@ -59,6 +59,7 @@ export const ListCart = ({flights}) => {
                             id={c.id} 
                             type={''}
                             action={action} 
+                            date={convertDate(c.date.seconds,'dddd D [de] MMMM [de] YYYY',true)}
                             departureCode={c.city_dp.name} 
                             arrivalCode = {c.city_arr.name} 
                             takeoff={c.takeoff} 

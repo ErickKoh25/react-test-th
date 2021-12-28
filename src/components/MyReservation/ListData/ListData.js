@@ -8,8 +8,7 @@ export const ListData = () => {
 
     const {flights} = useSelector(state => state.cart)
     const {reservations} = useSelector(state => state.reserve)
-    console.log(flights.length)
-    console.log(reservations)
+
     return (
         <div className='container-data'>
             {

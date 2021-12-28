@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { ItemCard } from '../../General/Cards/ItemCard';
 import { useDispatch, useSelector } from 'react-redux';
-import { convertDivisa } from '../../../helpers/functions';
+import { convertDivisa, convertDate } from '../../../helpers/functions';
 
 export const ListReservation = ({reservations}) => {
 
@@ -62,6 +62,7 @@ export const ListReservation = ({reservations}) => {
                                 id={c.id} 
                                 type={''}
                                 action={confirmed} 
+                                date={convertDate(c.date.seconds,'dddd D [de] MMMM [de] YYYY')}
                                 departureCode={c.city_dp.name} 
                                 arrivalCode = {c.city_arr.name} 
                                 takeoff={c.takeoff} 

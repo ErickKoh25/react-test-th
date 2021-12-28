@@ -30,8 +30,7 @@ export const searchFlights = async (dispatch, getState) => {
         start: convertDate((round_flight) ? dates[1]:null,'YYYY-MM-DD 00:00:00'),
         end: convertDate((round_flight) ? dates[1]:null,'YYYY-MM-DD 23:59:59')
     }
-    console.log(date1)
-    console.log(date2)
+    
     const q = query(
         collection(db,'Flights'), 
         where("origen", "==",id_departure),
@@ -84,8 +83,6 @@ export const searchFlights = async (dispatch, getState) => {
         fd.city_arr = city_arr
         return fd
     }) 
-    console.log(flights_from_origin)
-    console.log(flights_from_return)
     
     setTimeout(() => {
         dispatch(SEARCHING_FLIGHTS(false))

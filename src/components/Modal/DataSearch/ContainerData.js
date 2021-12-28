@@ -10,13 +10,12 @@ export const ContainerData = memo((props) => {
     const {flights_from_origin, flights_from_destination} = useSelector(state => state.flight)
 
     const {date,items,passengers,route,type} = props
-    console.log(type)
+
     const action = { 
         text: '',
         icon: 'fas fa-shopping-cart'
     }
     const handleClickAction = (id, type) => {
-        console.log(id,type)
         let flight = null
         if(type=='route1') {
             flight = flights_from_origin.find(f => f.id == id)
